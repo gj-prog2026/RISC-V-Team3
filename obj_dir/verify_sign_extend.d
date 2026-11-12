@@ -1,4 +1,4 @@
-verify_control_unit.o: ../tests/verify_control_unit.cpp Vcontrol_unit.h \
+verify_sign_extend.o: ../tests/verify_sign_extend.cpp Vsign_extend.h \
  /usr/local/share/verilator/include/verilated.h \
  /usr/local/share/verilator/include/verilatedos.h \
  /usr/local/share/verilator/include/verilated_config.h \

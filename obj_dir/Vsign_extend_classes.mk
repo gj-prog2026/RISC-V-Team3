@@ -2,7 +2,7 @@
 # DESCRIPTION: Verilator output: Make include file with class lists
 #
 # This file lists generated Verilated files, for including in higher level makefiles.
-# See Vcontrol_unit.mk for the caller.
+# See Vsign_extend.mk for the caller.
 
 ### Switches...
 # C11 constructs required?  0/1 (always on now)
@@ -23,20 +23,20 @@ VM_TRACE_FST = 0
 ### Object file lists...
 # Generated module classes, fast-path, compile with highest optimization
 VM_CLASSES_FAST += \
-	Vcontrol_unit \
-	Vcontrol_unit___024root__DepSet_h0f01dea8__0 \
+	Vsign_extend \
+	Vsign_extend___024root__DepSet_h7ba7c607__0 \
 
 # Generated module classes, non-fast-path, compile with low/medium optimization
 VM_CLASSES_SLOW += \
-	Vcontrol_unit___024root__Slow \
-	Vcontrol_unit___024root__DepSet_h0f01dea8__0__Slow \
+	Vsign_extend___024root__Slow \
+	Vsign_extend___024root__DepSet_h7ba7c607__0__Slow \
 
 # Generated support classes, fast-path, compile with highest optimization
 VM_SUPPORT_FAST += \
 
 # Generated support classes, non-fast-path, compile with low/medium optimization
 VM_SUPPORT_SLOW += \
-	Vcontrol_unit__Syms \
+	Vsign_extend__Syms \
 
 # Global classes, need linked once per executable, fast-path, compile with highest optimization
 VM_GLOBAL_FAST += \

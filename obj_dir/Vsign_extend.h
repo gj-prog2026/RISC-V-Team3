@@ -5,32 +5,28 @@
 // The class here is then constructed to instantiate the design.
 // See the Verilator manual for examples.
 
-#ifndef VERILATED_VCONTROL_UNIT_H_
-#define VERILATED_VCONTROL_UNIT_H_  // guard
+#ifndef VERILATED_VSIGN_EXTEND_H_
+#define VERILATED_VSIGN_EXTEND_H_  // guard
 
 #include "verilated.h"
 
-class Vcontrol_unit__Syms;
-class Vcontrol_unit___024root;
+class Vsign_extend__Syms;
+class Vsign_extend___024root;
 
 // This class is the main interface to the Verilated model
-class Vcontrol_unit VL_NOT_FINAL : public VerilatedModel {
+class Vsign_extend VL_NOT_FINAL : public VerilatedModel {
   private:
     // Symbol table holding complete model state (owned by this class)
-    Vcontrol_unit__Syms* const vlSymsp;
+    Vsign_extend__Syms* const vlSymsp;
 
   public:
 
     // PORTS
     // The application code writes and reads these signals to
     // propagate new values into/out from the Verilated model.
-    VL_IN8(&EQ,0,0);
-    VL_IN8(&opcode,6,0);
-    VL_OUT8(&RegWrite,0,0);
-    VL_OUT8(&ALUctrl,0,0);
-    VL_OUT8(&ALUsrc,0,0);
-    VL_OUT8(&Immsrc,0,0);
-    VL_OUT8(&PCsrc,0,0);
+    VL_IN8(&Immsrc,0,0);
+    VL_IN(&instr,31,0);
+    VL_OUT(&immop,31,0);
 
     // CELLS
     // Public to allow access to /* verilator public */ items.
@@ -38,19 +34,19 @@ class Vcontrol_unit VL_NOT_FINAL : public VerilatedModel {
 
     // Root instance pointer to allow access to model internals,
     // including inlined /* verilator public_flat_* */ items.
-    Vcontrol_unit___024root* const rootp;
+    Vsign_extend___024root* const rootp;
 
     // CONSTRUCTORS
     /// Construct the model; called by application code
     /// If contextp is null, then the model will use the default global context
     /// If name is "", then makes a wrapper with a
     /// single model invisible with respect to DPI scope names.
-    explicit Vcontrol_unit(VerilatedContext* contextp, const char* name = "TOP");
-    explicit Vcontrol_unit(const char* name = "TOP");
+    explicit Vsign_extend(VerilatedContext* contextp, const char* name = "TOP");
+    explicit Vsign_extend(const char* name = "TOP");
     /// Destroy the model; called (often implicitly) by application code
-    virtual ~Vcontrol_unit();
+    virtual ~Vsign_extend();
   private:
-    VL_UNCOPYABLE(Vcontrol_unit);  ///< Copying not allowed
+    VL_UNCOPYABLE(Vsign_extend);  ///< Copying not allowed
 
   public:
     // API METHODS
