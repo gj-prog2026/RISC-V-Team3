@@ -6,7 +6,7 @@ module control_unit #(
     output logic RegWrite,
     output logic ALUctrl,
     output logic ALUsrc,
-    output logic Immsrc,
+    output logic ImmSrc,
     output logic PCsrc
 );
 
@@ -18,7 +18,7 @@ always_comb begin
         7'b0010011: begin 
             RegWrite = 1'b1;
             PCsrc = 1'b0;
-            Immsrc = 1'b0;
+            ImmSrc = 1'b0;
             ALUctrl = 1'b0;
             ALUsrc = 1'b1;
         end
@@ -26,7 +26,7 @@ always_comb begin
         7'b1100011: begin 
             RegWrite = 1'b0;
             PCsrc = ~EQ;
-            Immsrc = 1'b1;
+            ImmSrc = 1'b1;
             ALUctrl = 1'b1;
             ALUsrc = 1'b0;
         end
@@ -34,7 +34,7 @@ always_comb begin
             RegWrite = 1'b0;
             ALUctrl = 1'b0;
             ALUsrc = 1'b0;
-            Immsrc = 1'b0;
+            ImmSrc = 1'b0;
             PCsrc = 1'b0;
         end
 
