@@ -25,6 +25,6 @@ module Pc_counter #(
     end
 
     assign pc_next = PCsrc ? pc_branch : pc_inc;
-    assign pc_out = pc_reg;
+    assign PC_out = pc_reg;
 
 endmodule
