@@ -17,7 +17,7 @@ TEST_F(TestControlUnit, Addi) {
     set(0b0010011, 0);
     EXPECT_EQ(top->RegWrite, 1);
     EXPECT_EQ(top->ALUsrc,   1);
-    EXPECT_EQ(top->Immsrc,   0);
+    EXPECT_EQ(top->ImmSrc,   0);
     EXPECT_EQ(top->ALUctrl,  0);
     EXPECT_EQ(top->PCsrc,    0);
 }
@@ -26,7 +26,7 @@ TEST_F(TestControlUnit, BneTaken) {
     set(0b1100011, 0);          // not equal -> branch
     EXPECT_EQ(top->RegWrite, 0);
     EXPECT_EQ(top->ALUsrc,   0);
-    EXPECT_EQ(top->Immsrc,   1);
+    EXPECT_EQ(top->ImmSrc,   1);
     EXPECT_EQ(top->PCsrc,    1);
 }
 
