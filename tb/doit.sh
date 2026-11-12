@@ -30,7 +30,7 @@ rm -rf obj_dir && mkdir -p obj_dir
 for test in "${tests[@]}"; do
     name=$(basename "$test" .cpp)
     name=${name#verify_}
-    sv="rtl/${name}.sv"
+    sv="../rtl/${name}.sv"
 
     echo
     echo "===== ${name} ====="
@@ -45,7 +45,7 @@ for test in "${tests[@]}"; do
 
     if verilator -Wall --trace --cc "$sv" \
             --exe "$(realpath "$test")" \
-            -y rtl \
+            -y ../rtl \
             --top-module "$top" \
             --Mdir "obj_dir/${name}" \
             -CFLAGS "-std=c++17" \
