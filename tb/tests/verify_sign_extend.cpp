@@ -8,12 +8,12 @@ class TestSignExtend : public ::testing::Test {
 public:
     void set(uint32_t instr, bool immsrc) {
         top->instr = instr;
-        top->Immsrc = immsrc;
+        top->ImmSrc = immsrc;
         top->eval();
     }
 
     uint32_t immop_val(void){
-        return top->immop;
+        return top->ImmOp;
     }
 };
 
