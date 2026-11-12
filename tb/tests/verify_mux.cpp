@@ -4,8 +4,6 @@
 #include "verilated_vcd_c.h"
 
 Vmux *top;
-VerilatedVcdC *tfp;
-unsigned int ticks = 0;
 
 class MuxTest : public ::testing::Test
 {
@@ -16,7 +14,6 @@ public:
         top->regOp2 = d0;
         top->ImmOp = d1;
         top->eval();
-        tfp->dump(ticks++);
         return top->ALUop2;
     }
 };
@@ -32,18 +29,12 @@ int main(int argc, char **argv)
 {
     Verilated::commandArgs(argc, argv);
     top = new Vmux;
-    tfp = new VerilatedVcdC;
-
-    Verilated::traceEverOn(true);
-    top->trace(tfp, 99);
-    tfp->open("waveform.vcd");
 
     testing::InitGoogleTest(&argc, argv);
     auto res = RUN_ALL_TESTS();
 
     top->final();
-    tfp->close();
+    
     delete top;
-    delete tfp;
     return res;
 }
