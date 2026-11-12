@@ -4,7 +4,15 @@ module top (
     output logic [31:0] a0
 );
     logic [31:0] PC, instr, ImmOp;
-    logic RegWrite, ALUsrc, ALUctrl, EQ;
+    logic RegWrite, ALUsrc, ALUctrl, EQ, PCsrc;
+
+Pc_counter PC_inst(
+        .clk(clk),
+        .rst(rst),
+        .ImmOp(ImmOp),
+        .PC_out(PC_out),
+        .PCsrc(PCsrc)
+    );
 
 instr_mem imem (
     .addr(PC[8:0]),   // ADDRESS_WIDTH = 9
@@ -20,5 +28,7 @@ reddatapath dp (
     .ImmOp(ImmOp),
     .EQ(EQ), .a0(a0)
 );
+
+
 
 endmodule
