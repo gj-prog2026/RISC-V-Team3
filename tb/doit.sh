@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Runs tests, all or specific
 #
 # Usage
