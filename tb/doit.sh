@@ -1,17 +1,14 @@
-#!/bin/bash
-# Runs every unit test in tests/ (or just the ones you name) and reports a summary.
+# Runs tests, all or specific
 #
-# Usage (from anywhere)
+# Usage
 #   ./doit.sh                                  run all tests
 #   ./doit.sh tests/verify_alu.cpp             run one test
 #
 # Naming rule
 #   tests/verify_<name>.cpp tests rtl/<name>.sv
 #   e.g. tests/verify_regfile.cpp -> rtl/regfile.sv
-#   The module name is read from inside the .sv file, so it may differ
-#   from the file name (e.g. pc.sv contains module Pc_counter).
 
-cd "$(dirname "$(realpath "$0")")"   # always run from the repo root
+cd "$(dirname "$(realpath "$0")")"
 
 GREEN=$(tput setaf 2 2>/dev/null); RED=$(tput setaf 1 2>/dev/null); RESET=$(tput sgr0 2>/dev/null)
 
@@ -40,7 +37,7 @@ for test in "${tests[@]}"; do
         ((fails++)); failed_names+=("$name"); continue
     fi
 
-    # First "module X" in the file is the module under test
+    #First "module X" in the file is the module under test
     top=$(grep -m1 -oP '^\s*module\s+\K\w+' "$sv")
 
     if verilator -Wall --trace --cc "$sv" \
