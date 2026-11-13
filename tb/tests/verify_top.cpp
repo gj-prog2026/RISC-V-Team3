@@ -2,7 +2,6 @@
 
 #include "Vtop.h"
 #include "verilated.h"
-#include "verilated_vcd_c.h"
 #include "gtest/gtest.h"
 
 #define CYCLES 10000
@@ -29,7 +28,6 @@ public:
         top->rst = 0;
     }
 
-    // Runs the simulation for a clock cycle, evaluates the DUT, dumps waveform.
     void runSimulation(int cycles = 1)
     {
         for (int i = 0; i < cycles; i++)
