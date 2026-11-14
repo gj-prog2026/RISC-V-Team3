@@ -7,6 +7,9 @@ same cycle it raises `stall` to the hazard unit.
 
 ## Overview: design progression
 
+![Simple overview](../images/Cache/simple_overview.png)
+
+
 1. **Direct-mapped, b = 1** (block size 1 word, so no word-select mux). This is
    the baseline and the version being implemented now.
 2. **2-way set associative** for a lower miss rate: two addresses that share a
@@ -16,6 +19,9 @@ same cycle it raises `stall` to the hazard unit.
    the same capacity there are fewer sets, so conflict misses can increase.
 
 ## Direct-mapped cache (b = 1)
+
+![Direct-mapped block diagram](../images/Cache/direct_mapping_diagram.png)
+
 
 | Parameter    | Value                                                  |
 |--------------|--------------------------------------------------------|
@@ -54,6 +60,9 @@ whole word. See `write_port_mux.pdf`.
 
 ### FSM
 
+![Direct-mapped FSM](../images/Cache/FSM_direct_mapping.png)
+
+
 | From      | Condition       | To        | Action                         |
 |-----------|-----------------|-----------|--------------------------------|
 | IDLE      | `rd_en && !hit` | READ_MISS | `mem_req = 1`, `mem_wr = 0`    |
@@ -65,6 +74,9 @@ whole word. See `write_port_mux.pdf`.
 `mem_req`, `mem_addr`, `mem_wdata` and `mem_byte_en` stable until `mem_ready`.
 
 ## LSU
+
+![LSU diagram (direct-mapped and 2-way)](../images/LSU/LSU_diagram_direct_2way.png)
+
 
 **Before the cache (stores):** the LSU drives the memory address, a 4-bit
 `byte_en` mask and the store data replicated into every lane:
